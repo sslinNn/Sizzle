@@ -1,0 +1,20 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<header>
+    <div class="logo">
+        <p class="logo">SIZZLE</p>
+    </div>
+</header>
+    
+<div class="menu">
+    <h1>Sign in</h1>
+    {% csrf_token %}
+    <form class="authForm" method="POST">
+        <input type="text" name="username" id="username" placeholder="username or email">
+        <button type="submit">Yeah!</button>
+    </form>    
+</div>
+{% endblock %}
