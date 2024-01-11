@@ -7,6 +7,10 @@ def login(request):
     return render(request, 'users/login.html', {'form': form})
 
 
+def profile(request):
+    return render(request, 'users/profile.html')
+
+
 def register(request):
     form = RegisterForm()
     return render(request, 'users/register.html', {'form': form})

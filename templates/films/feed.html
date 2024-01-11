@@ -3,12 +3,12 @@
 {% block title %}Feed{% endblock %}
 
 {% block content %}
-<header>
-    <div class="logo">
-        <p class="logo">SIZZLE</p>
-    </div>
-</header>
-
 <div class="menu">
+    {% for i in all_films %}
+        <div class="film">
+        <h3>{{ i.title }}</h3>
+        <p>{{ i.description }}</p>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}

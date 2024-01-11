@@ -1,5 +1,5 @@
 {% extends 'users/base.html' %}
-{#        <input type="hidden" name="text" value="{{ next }}" />#}
+
 {% block title %}Login{% endblock %}
 
 {% block content %}
@@ -8,8 +8,9 @@
     <form class="authForm" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Yeah!</button>
+{#        <input type="text" name="username" id="username" placeholder="username or email">#}
+        <button type="submit" onclick=location.href{% url 'profile' %}>Yeah!</button>
     </form>
-    <a href="{% url 'login' %}">LOGIN</a>
+    <a href="{% url 'register' %}">REGISTER</a>
 </div>
 {% endblock %}

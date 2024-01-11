@@ -14,7 +14,7 @@ class Film(models.Model):
     genre = models.ManyToManyField(Genre)
     description = models.TextField()
     release_date = models.DateField()
-    image = models.ImageField(upload_to='')
+    image = models.ImageField(upload_to='', null=True, default='default.jpg')
 
     def __str__(self):
         return f'{self.title} - {self.release_date}'
