@@ -63,14 +63,12 @@ input {
     border-radius: 5px;
 }
 
-
 button {
     border: none;
     border-radius: 5px;
     background: #FFFFFF;
     transition: background 1.5s ease;
 }
-
 
 button:active{
     transition: background 0.02s ease;

@@ -1,5 +1,5 @@
 {% extends 'users/base.html' %}
-
+{#        <input type="hidden" name="text" value="{{ next }}" />#}
 {% block title %}Login{% endblock %}
 
 {% block content %}
@@ -8,13 +8,14 @@
         <p class="logo">SIZZLE</p>
     </div>
 </header>
-    
+
 <div class="menu">
     <h1>Sign in</h1>
-    {% csrf_token %}
-    <form class="authForm" method="POST">
-        <input type="text" name="username" id="username" placeholder="username or email">
+    <form class="authForm" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
         <button type="submit">Yeah!</button>
-    </form>    
+    </form>
+    <a href="{% url 'login' %}">LOGIN</a>
 </div>
 {% endblock %}
