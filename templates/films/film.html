@@ -5,11 +5,17 @@
 {% block content %}
 <div class="menu" id="feed">
     <div class="film">
-            <img src="{{ film.image.url }}" alt="{{ film.title }}">
+        <img src="{{ film.image.url }}" alt="{{ film.title }}">
         <div class="text-overlay">
             <h3>{{ film.title }}</h3>
             <p>{{ film.description }}</p>
         </div>
     </div>
+    <div class="film_player">
+        <video width="320" height="240" controls>
+            <source src="{{ film.video.url }}" type='video/mp4'> Your browser does not support the video tag.
+        </video>
+    </div>
+
 </div>
 {% endblock %}
