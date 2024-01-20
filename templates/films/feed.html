@@ -4,13 +4,11 @@
 
 {% block content %}
 <div class="menu" id="feed">
-    <iframe id="player" title="player" 
-            width="700" height="400" 
-            src="https://vb24130jarvisletos.pw/movie/32de159af51d741e5e1e4f5fe62ab840/iframe?d=kinogo.biz">
-    </iframe>
     {% for i in all_films %}
         <div class="film" id="{{ i.id }}">
-            <img src="{{ i.image.url }}" alt="{{ i.title }}">
+            <a href="{{ i.id }}/" id="film_link">
+                <img src="{{ i.image.url }}" alt="{{ i.title }}">
+            </a>
             <div class="text-overlay">
                 <h3>{{ i.title }}</h3>
             </div>

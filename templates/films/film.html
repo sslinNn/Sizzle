@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="menu" id="feed">
+    <div class="film">
+            <img src="{{ film.image.url }}" alt="{{ film.title }}">
+        <div class="text-overlay">
+            <h3>{{ film.title }}</h3>
+            <p>{{ film.description }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
