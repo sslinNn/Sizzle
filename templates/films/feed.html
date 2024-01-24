@@ -6,7 +6,7 @@
 <div class="menu" id="feed">
     {% for i in all_films %}
         <div class="film" id="{{ i.id }}">
-            <a href="{{ i.id }}/" id="film_link">
+            <a href="film/{{ i.id }}/" id="film_link">
                 <img src="{{ i.image.url }}" alt="{{ i.title }}">
             </a>
             <div class="text-overlay">
