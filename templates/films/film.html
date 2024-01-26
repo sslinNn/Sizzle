@@ -1,6 +1,9 @@
 {% extends 'users/base.html' %}
 
-{% block title %}{% endblock %}
+{% block title %}
+    {{ film.title }}
+{% endblock %}
+
 
 {% block content %}
 <div class="menu" id="feed">
@@ -11,22 +14,22 @@
             <p>{{ film.description }}</p>
         </div>
     </div>
-{#    <div class="film_player">#}
-{#        <video#}
-{#        id="my-video"#}
-{#        class="video-js"#}
-{#        controls#}
-{#        preload="auto"#}
-{#        width="640"#}
-{#        height="264"#}
-{#        data-setup="{}">#}
-{#            <source src="{% url 'stream' film.id %}" type='video/mp4' />#}
-{#            <source src="{% url 'stream' film.id %}" type='video/webm' />#}
-{#        </video>#}
-{#    </div>#}
-<div class="filmmmm">
-    <video src="{% url 'stream' film.id %}" controls></video>
-</div>
+    <div class="film_player">
+        <video
+        id="my-video"
+        class="video-js"
+        controls
+        preload="auto"
+        width="640"
+        height="264"
+        data-setup="{}">
+            <source src="{% url 'stream' film.id %}" type='video/mp4' />
+            <source src="{% url 'stream' film.id %}" type='video/webm' />
+        </video>
+    </div>
+{#<div class="filmmmm">#}
+{#    <video src="{% url 'stream' film.id %}" controls></video>#}
+{#</div>#}
 
 </div>
 

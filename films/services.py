@@ -1,18 +1,13 @@
 from pathlib import Path
-from typing import IO, Generator
+
+from django.http import StreamingHttpResponse
 from django.shortcuts import get_object_or_404
 
 from .models import Film
 
 
-def ranged(
-        file: IO[bytes],
-        start: int = 0,
-        end: int = None,
-        block_size: int = 8192,
-) -> Generator[bytes, None, None]:
+def ranged(file, start, end, block_size: int = 8192):
     consumed = 0
-
     file.seek(start)
     while True:
         data_length = min(block_size, end - start - consumed) if end else block_size
@@ -31,7 +26,6 @@ def ranged(
 def open_file(request, film_id: int) -> tuple:
     _film = get_object_or_404(Film, pk=film_id)
     path = Path(_film.video.path)
-    print(path)
 
     file = path.open('rb')
     file_size = path.stat().st_size
