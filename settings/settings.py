@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+import corsheaders
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,15 +26,15 @@ SECRET_KEY = 'django-insecure-5k*(u+n6svlf8f-&n0m(8qw$f_j%63brwj%4%x*=uc0f#=o1g#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = [
-#     '192.168.0.12',
-#     '127.0.0.1'
-# ]
+ALLOWED_HOSTS = [
+    '192.168.0.12',
+    '127.0.0.1'
+]
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = [8000]
+
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "corsheaders",
     'users',
     'films',
 ]
@@ -53,7 +55,27 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+# https://storage.yandexcloud.net/s-sli.nnn/sward/master.m3u8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJE5JLs8h8aYGHT7bCddNW7%2F20240210%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20240210T182630Z&X-Amz-Expires=2592000&X-Amz-Signature=52297D115B96D04F74778BF65DB4294F48466A3667A6F8745A1289DC9F00E229&X-Amz-SignedHeaders=host
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8000",
+#     "http://127.0.0.1:8000",
+# ]
+#
+# CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_HEADERS = (
+#     "accept",
+#     "authorization",
+#     "content-type",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+# )
+
+
 
 ROOT_URLCONF = 'settings.urls'
 
@@ -72,6 +94,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'settings.wsgi.application'
 ASGI_APPLICATION = 'settings.asgi.application'

@@ -1,4 +1,4 @@
-{% extends 'users/base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}
     {{ film.title }}
@@ -6,31 +6,35 @@
 
 
 {% block content %}
-<div class="menu" id="feed">
-    <div class="film">
-        <img src="{{ film.image.url }}" alt="{{ film.title }}">
-        <div class="text-overlay">
-            <h3>{{ film.title }}</h3>
-            <p>{{ film.description }}</p>
-        </div>
+    <div class="main">
+        <h4 id="title">{{ film.title }}</h4>
+            <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script> -->
+    <!-- Or if you want the latest version from the main branch -->
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@canary"></script>
+          <video id="video" controls></video>
+    
+          <!-- type="application/x-mpegURL" -->
+    
+            <script>
+                var video = document.getElementById('video');
+                {#var videoSrc = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';#}
+                // var videoSrc = '/The_Equalizer_3/1920x1080p.m3u8';
+                var videoSrc = 'https://storage.yandexcloud.net/s-sli.nnn/recrent/master.m3u8';
+                
+                //
+                // First check for native browser HLS support
+                //
+                if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                  video.src = videoSrc;
+                  //
+                  // If no native HLS support, check if HLS.js is supported
+                  //
+                } else if (Hls.isSupported()) {
+                  var hls = new Hls();
+                  hls.loadSource(videoSrc);
+                  hls.attachMedia(video);
+                }
+            </script>
     </div>
-    <div class="film_player">
-        <video
-        id="my-video"
-        class="video-js"
-        controls
-        preload="auto"
-        width="640"
-        height="264"
-        data-setup="{}">
-            <source src="{% url 'stream' film.id %}" type='video/mp4' />
-            <source src="{% url 'stream' film.id %}" type='video/webm' />
-        </video>
-    </div>
-{#<div class="filmmmm">#}
-{#    <video src="{% url 'stream' film.id %}" controls></video>#}
-{#</div>#}
-
-</div>
-
 {% endblock %}
+
