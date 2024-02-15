@@ -114,6 +114,20 @@ a#film_link{
     height: 100%;
 }
 
-.player{
-    height: 400px;
+.film {
+    display: flex;
+}
+
+.film#about {
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.film#thumbnail{
+    height: 300px;
+    width: auto;
+}
+.main{
+    width: 630px;
+    height: auto;
 }

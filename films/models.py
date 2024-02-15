@@ -15,8 +15,7 @@ class Film(models.Model):
     description = models.TextField()
     release_date = models.DateField()
     image = models.ImageField(upload_to='media/images/cover/', null=True, default='default.jpg')
-    video = models.FileField(upload_to='media/films/Sward/', null=True, default='default.mp4')
-    video_path = models.FilePathField(path='media/films/')
+    url = models.URLField(null=True)
 
     def __str__(self):
         return f'{self.title} - {self.release_date}'

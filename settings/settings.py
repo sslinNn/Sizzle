@@ -58,25 +58,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-# https://storage.yandexcloud.net/s-sli.nnn/sward/master.m3u8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJE5JLs8h8aYGHT7bCddNW7%2F20240210%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20240210T182630Z&X-Amz-Expires=2592000&X-Amz-Signature=52297D115B96D04F74778BF65DB4294F48466A3667A6F8745A1289DC9F00E229&X-Amz-SignedHeaders=host
-
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:8000",
-#     "http://127.0.0.1:8000",
-# ]
-#
-# CORS_ALLOW_ALL_ORIGINS = True
-# CORS_ALLOW_HEADERS = (
-#     "accept",
-#     "authorization",
-#     "content-type",
-#     "user-agent",
-#     "x-csrftoken",
-#     "x-requested-with",
-# )
-
-
-
 ROOT_URLCONF = 'settings.urls'
 
 TEMPLATES = [
@@ -106,7 +87,7 @@ ASGI_APPLICATION = 'settings.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dl',
+        'NAME': 'sizzle',
         'USER': 'postgres',
         'PASSWORD': 'razer1991',
         'HOST': 'localhost',
