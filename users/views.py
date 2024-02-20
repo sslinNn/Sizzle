@@ -6,6 +6,23 @@ from django.urls import reverse
 from .forms import RegisterForm, LoginForm
 
 
+def user_register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            login(request, user)
+            return HttpResponseRedirect(reverse('users:profile'))
+    else:
+        form = RegisterForm()
+    return render(request, 'users/register.html', {'form': form})
+
+    form = RegisterForm()
+    return render(request, 'users/register.html', {'form': form})
+
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request, data=request.POST)
@@ -30,8 +47,3 @@ def user_logout(request):
 
 def user_profile(request):
     return render(request, 'users/profile.html')
-
-
-def user_register(request):
-    form = RegisterForm()
-    return render(request, 'users/register.html', {'form': form})

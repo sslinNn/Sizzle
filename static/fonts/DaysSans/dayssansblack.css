@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'DaysSansBlack';
+	src: url('../fonts/dayssansblack.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/dayssansblack.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/dayssansblack.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/dayssansblack.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/dayssansblack.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/dayssansblack.svg#dayssansblack') format('svg'); /* Chrome < 4, Legacy iOS */
+}

@@ -1,3 +1,12 @@
+@font-face {
+	font-family: 'DaysSansBlack';
+	src: url('../fonts/DaysSans/dayssansblack.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/DaysSans/dayssansblack.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/DaysSans/dayssansblack.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/DaysSans/dayssansblack.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/DaysSans/dayssansblack.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/DaysSans/dayssansblack.svg#dayssansblack') format('svg'); /* Chrome < 4, Legacy iOS */
+}
 /* ------------------------ MAIN ------------------------ */
 body {
     display: flex;
@@ -19,10 +28,11 @@ nav {
 }
 
 header {
-    height: 100%;
+    height: 60px;
     width: 100%;
     display: flex;
     justify-content: space-around;
+    align-content: center;
 }
 
 header p {
@@ -56,6 +66,10 @@ button:active{
     flex-direction: column;
     align-items: center;
     padding: 20px;
+}
+.logo{
+    display: flex;
+    align-items: center;
 }
 
 #feed.menu{
