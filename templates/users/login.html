@@ -9,8 +9,8 @@
         {% csrf_token %}
         {{ form.as_p }}
 {#        <input type="text" name="username" id="username" placeholder="username or email">#}
-        <button type="submit" onclick=location.href{% url 'profile' %}>Yeah!</button>
+        <button type="submit" onclick=location.href{% url 'users:profile' %}>Yeah!</button>
     </form>
-    <a href="{% url 'register' %}">REGISTER</a>
+    <a href="{% url 'users:register' %}">REGISTER</a>
 </div>
 {% endblock %}

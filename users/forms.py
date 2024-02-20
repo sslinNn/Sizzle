@@ -8,17 +8,18 @@ class LoginForm(AuthenticationForm):
         label='',
         widget=forms.TextInput(
             attrs={'class': 'form-input', 'placeholder': 'Username'}
-        )
+        ), min_length=4, max_length=25
     )
     password = forms.CharField(
         label='',
         widget=forms.PasswordInput(
             attrs={'class': 'form-input', 'placeholder': 'Password'}
-        )
+        ), min_length=6
     )
 
     class Meta:
         model = get_user_model()
+        fields = ['username', 'password']
 
 
 class RegisterForm(forms.ModelForm):
