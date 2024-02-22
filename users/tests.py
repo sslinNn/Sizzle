@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.test import TestCase
 
 
@@ -10,4 +9,3 @@ class TestUsers(TestCase):
     def test_users_register(self):
         response = self.client.get('/user/register/')
         self.assertEqual(response.status_code, 200)
-
