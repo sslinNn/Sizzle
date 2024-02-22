@@ -3,16 +3,29 @@
 {% block title %}SIZZLE{% endblock %}
 
 {% block content %}
-<div class="menu" id="feed">
-    {% for i in all_films %}
-        <div class="film" id="{{ i.id }}">
-            <a href="film/{{ i.id }}/" id="film_link">
-                <img src="{{ i.image.url }}" alt="{{ i.title }}">
-            </a>
-            <div class="text-overlay">
-                <h3>{{ i.title }}</h3>
+    <div class="menu" id="feed">
+        <div class="films">
+            <div class="films" id="info">
+                <h3>Все фильмы</h3>
+            </div>
+            {% for i in all_films %}
+                <div class="film" id="{{ i.id }}">
+                    <a href="film/{{ i.id }}/" id="film_link">
+                        <img src="{{ i.image.url }}" alt="{{ i.title }}">
+                    </a>
+                    <div class="text-overlay">
+                        <h3>{{ i.title }}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="side_menu">
+            <div class="genre">
+                <h3>Фильмы</h3>
+                {% for i in all_genres %}
+                    <p><a href="{{ i.id }}" id="genre_link">{{ i.name }}</a></p>
+                {% endfor %}
             </div>
         </div>
-    {% endfor %}
-</div>
+    </div>
 {% endblock %}

@@ -7,15 +7,28 @@
 {% block content %}
     <div class="main">
         <div class="film">
-            <div class="film" id="thumbnail">
-                <img src="{{ film.image.url }}" alt="">
+            <div class="film" id="title">
+                <h1>{{ film.title }}</h1>
+                <p>{{ film.release_date.year }}</p>
             </div>
-            <div class="film" id="about">
-                <div class="film" id="title">
-                    <h3>{{ film.title }}</h3>
+            <div class="film" id="info">
+                <div class="film" id="thumbnail">
+                    <img src="{{ film.image.url }}" alt="">
                 </div>
-                <div class="film" id="description">
-                    <p>{{ film.description }}</p>
+                <div class="film" id="about">
+                    <div class="film" id="description">
+                        <p><b>Описание:</b></p>
+                        <p>{{ film.description }}</p>
+                    </div>
+                    <div class="film" id="genres">
+                    <p><b>Жанр:</b></p>
+                        {% for i in film.genre.all %}
+                            <p>{{ i }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="film" id="duration">
+                        <p><b>Продолжительность:</b> {{ film.length }} мин.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,16 +50,16 @@
                         defaulOptions.controls= [
                             'play-large',
                             'rewind',
-                            'play', 
+                            'play',
                             'fast-forward',
                             'progress',
                             'current-time',
                             'duration',
-                            'mute', 
-                            'volume', 
-                            'captions', 
+                            'mute',
+                            'volume',
+                            'captions',
                             'settings',
-                            'pip', 
+                            'pip',
                             'airplay',
                             'fullscreen',
                         ];
@@ -69,7 +82,7 @@
                         }
                     })
                 }
-            })  
+            })
         </script>
     </div>
 {% endblock %}

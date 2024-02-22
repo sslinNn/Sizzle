@@ -1,10 +1,12 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from films.models import Film
+from films.models import Film, Genre
 
 
 def feed(request):
+    all_genres = Genre.objects.all()
     all_films = Film.objects.all()
-    return render(request, 'films/feed.html', {'all_films': all_films})
+    return render(request, 'films/feed.html', {'all_films': all_films, 'all_genres': all_genres})
 
 
 def film(request, film_id):

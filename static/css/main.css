@@ -7,7 +7,19 @@
 		url('../fonts/DaysSans/dayssansblack.ttf') format('truetype'), /* Safari, Android, iOS */
 		url('../fonts/DaysSans/dayssansblack.svg#dayssansblack') format('svg'); /* Chrome < 4, Legacy iOS */
 }
+
 /* ------------------------ MAIN ------------------------ */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+h1 {
+    font-size: 36px;
+}
+h3 {
+    font-size: 24px;
+}
+
 body {
     height: 100vh;
     display: flex;
@@ -35,7 +47,7 @@ header {
     height: 60px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
 }
 
@@ -64,24 +76,37 @@ button:active{
 /* ------------------------------------------------------ */
 
 .menu {
-    background-color: #00000033;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
 }
-.logo{
+#feed.menu{
     display: flex;
-    align-items: center;
+    width: 100%;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
-#feed.menu{
+.menu .films{
+    background-color: #00000033;
+    border-radius: 10px;
+    display: flex;
+    width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    row-gap: 20px;
+    row-gap: 5px;
     column-gap: 15px;
+}
+.menu .side_menu{
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+}
+.menu .side_menu .genre{
+    display: flex;
+    flex-direction: column;
 }
 
 .menu li {
@@ -111,6 +136,11 @@ button:active{
     height: 100%;
 }
 
+.logo{
+    display: flex;
+    align-items: center;
+}
+
 .film .text-overlay{
     text-shadow: 4px 4px 4px black;
     position:absolute;
@@ -138,16 +168,30 @@ a#film_link{
 
 .film {
     display: flex;
+    flex-direction: column;
+}
+.film#title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.films#info {
+    display: flex;
+    flex-direction: row;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .film#about {
     align-content: flex-start;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .film#thumbnail{
     height: 300px;
-    width: auto;
+    width: 200px;
 }
 .main{
     width: 630px;
