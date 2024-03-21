@@ -83,7 +83,7 @@ button:active{
 #feed.menu{
     display: flex;
     width: 100%;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
 }
@@ -97,7 +97,7 @@ button:active{
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 5px;
-    column-gap: 15px;
+    column-gap: 10px;
 }
 .menu .side_menu{
     display: flex;
@@ -129,6 +129,7 @@ button:active{
     justify-content: center;
     align-items: center;
     background-size: cover;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.25);
 }
 
 .menu .film img{
@@ -141,12 +142,23 @@ button:active{
     align-items: center;
 }
 
+/*.film .text-overlay{*/
+/*    text-shadow: 4px 4px 4px black;*/
+/*    position:absolute;*/
+/*    top:8px;*/
+/*    left:16px;*/
+/*    font-size:18px;*/
+/*}*/
+
 .film .text-overlay{
-    text-shadow: 4px 4px 4px black;
-    position:absolute;
-    top:8px;
-    left:16px;
-    font-size:18px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
 }
 
 .menu p{
@@ -183,13 +195,21 @@ a#film_link{
     border-bottom-right-radius: 0px;
 }
 
+.film#info {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    background-color: #00000033;
+    padding: 10px;
+}
+
 .film#about {
     align-content: flex-start;
     flex-wrap: wrap;
     flex-direction: column;
 }
 
-.film#thumbnail{
+.film#thumbnail img{
     height: 300px;
     width: 200px;
 }
@@ -202,4 +222,19 @@ a#film_link{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.genre h3{
+    border-bottom: solid #00000030 2.5px;
+}
+
+.genre a:hover {
+    color: #8ab9ff;
+}
+
+.profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

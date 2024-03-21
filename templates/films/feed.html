@@ -4,13 +4,25 @@
 
 {% block content %}
     <div class="menu" id="feed">
+        <div class="side_menu">
+            <div class="genre">
+                <h3>Жанры</h3>
+                {% for i in all_genres %}
+                    <p><a href="{% url 'feed_by_genre' i.id %}" id="genre_link">{{ i.name }}</a></p>
+                {% endfor %}
+            </div>
+        </div>
         <div class="films">
             <div class="films" id="info">
-                <h3>Все фильмы</h3>
+                {% if genre %}
+                    <h3> {{ genre }} </h3>
+                    {% else %}
+                    <h3>Все фильмы</h3>
+                {% endif %}
             </div>
             {% for i in all_films %}
                 <div class="film" id="{{ i.id }}">
-                    <a href="film/{{ i.id }}/" id="film_link">
+                    <a href="{% url 'film' i.id %}" id="film_link">
                         <img src="{{ i.image.url }}" alt="{{ i.title }}">
                     </a>
                     <div class="text-overlay">
@@ -19,13 +31,6 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="side_menu">
-            <div class="genre">
-                <h3>Фильмы</h3>
-                {% for i in all_genres %}
-                    <p><a href="{{ i.id }}" id="genre_link">{{ i.name }}</a></p>
-                {% endfor %}
-            </div>
-        </div>
+
     </div>
 {% endblock %}

@@ -39,35 +39,34 @@
         <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                var video = document.getElementById('player');
-                var source = '{{ film.url }}';
+                const video = document.getElementById('player');
+                const source = '{{ film.url }}';
                 const defaulOptions = {};
                 if (Hls.isSupported()){
                     const hls = new Hls();
                     hls.loadSource(source);
-                    hls.on(Hls.Events.MANIFEST_PARSED, function(event, data){
+                    hls.on(Hls.Events.MANIFEST_PARSED, function(){
                         const availableQualities = hls.levels.map((l) => l.height)
                         defaulOptions.controls= [
-                            'play-large',
-                            'rewind',
                             'play',
-                            'fast-forward',
                             'progress',
                             'current-time',
                             'duration',
                             'mute',
                             'volume',
-                            'captions',
                             'settings',
-                            'pip',
-                            'airplay',
-                            'fullscreen',
+                            'captions',
+                            'fullscreen'
                         ];
                         defaulOptions.quality = {
-                            default: availableQualities[0],
-                            options: availableQualities,
+                            default: availableQualities[-1],
+                            options: availableQualities.reverse(),
                             forced: true,
                             onChange: (e) => updateQuality(e)
+                        }
+                        defaulOptions.keyboard = {
+                            focused: true,
+                            global: true
                         }
                         defaulOptions.type = 'application/x-mpegURL;'
                         new Plyr(video, defaulOptions);
