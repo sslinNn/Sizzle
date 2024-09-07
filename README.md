@@ -1,5 +1,3 @@
-# THATS SUPER PUPER MEGA BETA
-
 ### FEED 
 ![image](https://github.com/sslinNn/Sizzle/assets/113080924/c7d956e6-384c-4dfd-876d-676a5bbd7769)
 
